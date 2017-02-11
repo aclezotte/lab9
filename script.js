@@ -1,12 +1,25 @@
 function shoppingListObjects (list) {
+    
+    function addP (content) {
+    var para = document.createElement("p");
+    var node = document.createTextNode(content);
+    para.appendChild(node);
+    var element = document.getElementById("listDiv");
+    element.appendChild(para);
+    }
+    
     var total = 0;
     
     for ( i = 0; i < list.length; i++ ) {
-        console.log ( list[i].name + ": $" + list[i].price );
+        addP ( list[i].name + ": $" + list[i].price );
         total += list[i].price;
     }
     
-    console.log("Total: $" + total);
+    var hr = document.createElement("hr");
+    var element = document.getElementById("listDiv");
+    element.appendChild(hr);
+    
+    addP ( "Total: $" + total );
 }
 
 var groceryList = [
