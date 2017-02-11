@@ -15,9 +15,7 @@ function shoppingListObjects (list) {
         total += list[i].price;
     }
     
-    var hr = document.createElement("hr");
-    var element = document.getElementById("listDiv");
-    element.appendChild(hr);
+    document.getElementById("listDiv").appendChild(document.createElement("hr"));
     
     addP ( "Total: $" + total );
 }
