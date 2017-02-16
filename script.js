@@ -1,30 +1,38 @@
-function shoppingListObjects (list) {
-    
-    function addP (content) {
-    var para = document.createElement("p");
-    var node = document.createTextNode(content);
-    para.appendChild(node);
-    var element = document.getElementById("listDiv");
-    element.appendChild(para);
-    }
-    
+function shoppingListObjects(){
     var total = 0;
+    var p, div;
     
     for ( i = 0; i < list.length; i++ ) {
-        addP ( list[i].name + ": $" + list[i].price );
+        p = document.createElement("p");
+        p.innerHTML = list[i].name + ': $' + list[i].price;
+        div = document.getElementById("listDiv");
+        div.appendChild(p);
         total += list[i].price;
     }
     
-    document.getElementById("listDiv").appendChild(document.createElement("hr"));
-    
-    addP ( "Total: $" + total );
+    total = Math.round(total * 100) / 100;
+    p = document.createElement("p");
+    p.innerHTML = 'Total: $' + total;
+    div = document.getElementById("totalDiv");
+    div.appendChild(p);
 }
 
-var groceryList = [
-    milk = {name: "Milk", price: 2.49},
-    bread = {name: "Bread", price: 3.99},
-    apples = {name: "Apples",price: 4.49,},
-    spinach = {name: "Spinach", price: 1.99,}
-];
+var list = [
+        {name: "Milk", price: 2.49},
+        {name: "Bread", price: 3.99},
+        {name: "Apples",price: 4.49,},
+        {name: "Spinach", price: 1.99,}
+    ];
+    
+function addItem(){
+        document.getElementById('listDiv').innerHTML = "";
+        document.getElementById('totalDiv').innerHTML = "";
+        var name = document.getElementById("nameBox").value;
+        var price = Math.round(document.getElementById("priceBox").value * 100) / 100;
+        list.push({name: name, price: price});
+        shoppingListObjects(list);
+    }
+    
+document.getElementById("button").addEventListener('click', addItem);
 
-shoppingListObjects (groceryList);
+shoppingListObjects (list);
