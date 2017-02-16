@@ -4,7 +4,7 @@ function shoppingListObjects(){
     
     for ( i = 0; i < list.length; i++ ) {
         p = document.createElement("p");
-        p.innerHTML = list[i].name + ': $' + list[i].price;
+        p.innerHTML = list[i].name + ': $' + list[i].price.toFixed(2);
         div = document.getElementById("listDiv");
         div.appendChild(p);
         total += list[i].price;
@@ -28,7 +28,7 @@ function addItem(){
         document.getElementById('listDiv').innerHTML = "";
         document.getElementById('totalDiv').innerHTML = "";
         var name = document.getElementById("nameBox").value;
-        var price = Math.round(document.getElementById("priceBox").value * 100) / 100;
+        var price = document.getElementById("priceBox").value * 1;
         list.push({name: name, price: price});
         shoppingListObjects(list);
     }
