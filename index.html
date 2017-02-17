@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:800" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
     <body>
-        <h1>Shopping List</h1>
-        <hr>
-        <div id="listDiv">
-        </div>
-        <hr>
-        <div id="totalDiv">
-        </div>
-        <hr>
-        <form name="addForm" action="" method="get">
-                <p>
-                    <label for="nameBox">Item Name:</label>
-                    <input type="text" name="nameBox" id="nameBox" value="">
-                </p>
-                <p>
-                    <label for="priceBox">Item Price:</label>
-                    <input type="text" name="priceBox" id="priceBox" value="">
-                </p>
-                <input type="button" name="button" id="button" value="Add">
-        </form>
-        <script src="script.js"></script>
+        <div class="container">
+            <div class="row" id="header">
+                <h1 class="col-xs-12">Shopping List</h1>
+            </div>
+            <div class="row">
+                <div class="col-xs-6" id="list">
+                    <div id="listDiv">
+                    </div>
+                    <div id="totalDiv">
+                    </div>
+                </div>
+                <div class="col-xs-6" id="form">
+                    <form name="addForm" action="" method="get">
+                            <div class="form-group">
+                                <label for="nameBox">Item Name:</label>
+                                <input class="form-control" type="text" name="nameBox" id="nameBox" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="priceBox">Item Price:</label>
+                                <input class="form-control" type="text" name="priceBox" id="priceBox" value="">
+                            </div>
+                            <input class="btn btn-success" type="button" name="button" id="button" value="Add">
+                    </form>
+                </div>
+            </div>
+            </div>
+        <script src="javascript/script.js"></script>
     </body>
 </html>
