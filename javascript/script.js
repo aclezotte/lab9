@@ -1,11 +1,11 @@
 function shoppingListObjects(){
     var total = 0;
-    var p, div;
+    var p;
+    var div = document.getElementById('listDiv');
     
     for ( i = 0; i < list.length; i++ ) {
         p = document.createElement('p');
         p.innerHTML = list[i].name + ': $' + list[i].price.toFixed(2);
-        div = document.getElementById('listDiv');
         div.appendChild(p);
         total += list[i].price;
     }
@@ -13,7 +13,6 @@ function shoppingListObjects(){
     total = total.toFixed(2);
     p = document.createElement('p');
     p.innerHTML = 'Total: $' + total;
-    div = document.getElementById('totalDiv');
     div.appendChild(p);
 }
 
